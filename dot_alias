@@ -1,0 +1,7 @@
+alias ll='ls -al'
+
+# delete python's 'pyc' files
+alias pyclean='find . -name "*.pyc" | xargs rm'
+
+# delete merged branches except main branches
+alias gclean='git branch --merged | egrep -v "(^\*|master|dev|develop|staging|stage|release)" | xargs git branch -d'
