@@ -1,7 +1,12 @@
 alias ll='ls -al'
 
-# delete python's 'pyc' files
-alias pyclean='find . -name "*.pyc" | xargs rm'
+# clean
+## delete python's 'pyc' files
+alias pycclean='find . -name "*.pyc" | xargs rm'
+## delete merged branches except main branches
+alias gitclean='git branch --merged | egrep -v "(^\*|master|dev|develop|staging|stage|release)" | xargs git branch -d'
+## delete vim's swp files
+alias vimclean='find . -name "*.*.swp" | xargs rm'
 
-# delete merged branches except main branches
-alias gclean='git branch --merged | egrep -v "(^\*|master|dev|develop|staging|stage|release)" | xargs git branch -d'
+# shows terraform formatting errors
+alias lint-terraform='terraform fmt -write=false -list=true -diff=true'
